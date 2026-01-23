@@ -57,6 +57,18 @@ function mostrarDados(json) {
 
 function copiar(texto) {
   navigator.clipboard.writeText(texto).then(() => {
-    alert("Copiado: " + texto);
+    const aviso = document.createElement("div");
+    aviso.textContent = "Copiado!";
+    aviso.style.position = "fixed";
+    aviso.style.bottom = "20px";
+    aviso.style.left = "50%";
+    aviso.style.transform = "translateX(-50%)";
+    aviso.style.background = "#4caf50";
+    aviso.style.color = "white";
+    aviso.style.padding = "8px 12px";
+    aviso.style.borderRadius = "5px";
+    aviso.style.zIndex = "1000";
+    document.body.appendChild(aviso);
+    setTimeout(() => aviso.remove(), 1500); // desaparece em 1,5s
   });
 }
