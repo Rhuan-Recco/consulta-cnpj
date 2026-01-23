@@ -4,28 +4,43 @@
   <meta charset="UTF-8">
   <title>Consulta CNPJ</title>
   <style>
-    body {font-family: Arial, sans-serif;margin: 20px;text-align: center;}
-    .app {
-    	display: flex;
-	width: 300px;
-	justify-content: center;
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
     }
-    label, input { display: block; margin: 10px ;text-align: center; }
-    .campo { margin-bottom: 10px; }
-    .campo span { font-weight: bold; }
-    button { margin-left: 10px; }
+    body {
+      width: 100vw;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .app {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
   </style>
 </head>
 <body>
-<div class="app">
-  <h1>Consulta de CNPJ</h1>
-  
-  <label for="cnpj">Digite o CNPJ:</label>
-  <input type="text" id="cnpj" placeholder="00.000.000/0000-00">
-  <button onclick="consultarCNPJ()">Consultar</button>
-</div>  
-  <div id="resultado"></div>
-  
+  <div class="app">
+    <h1>Consulta de CNPJ</h1>
+    <br/>
+    <div>
+      <div>
+        <label for="cnpj">Digite o CNPJ:</label>
+        <input type="text" id="cnpj" placeholder="00.000.000/0000-00">
+      </div>
+    </div>
+    <br/>
+    <div>
+      <button onclick="consultarCNPJ()">Consultar</button>
+    </div>
+    <div id="resultado"></div>
+  </div>  
   <script src="script.js"></script>
 </body>
 </html>
