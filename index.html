@@ -5,19 +5,25 @@
   <title>Consulta CNPJ</title>
   <style>
     body {font-family: Arial, sans-serif;margin: 20px;text-align: center;}
-    label, input { display: block; text-align: center; margin: 10px ;text-align: center; }
+    .app {
+    	display: flex;
+	width: 300px;
+	justify-content: center;
+    }
+    label, input { display: block; margin: 10px ;text-align: center; }
     .campo { margin-bottom: 10px; }
-    .campo span { font-weight: bold; text-align: center; }
+    .campo span { font-weight: bold; }
     button { margin-left: 10px; }
   </style>
 </head>
 <body>
+<div class="app">
   <h1>Consulta de CNPJ</h1>
   
   <label for="cnpj">Digite o CNPJ:</label>
   <input type="text" id="cnpj" placeholder="00.000.000/0000-00">
   <button onclick="consultarCNPJ()">Consultar</button>
-  
+</div>  
   <div id="resultado"></div>
   
   <script src="script.js"></script>
