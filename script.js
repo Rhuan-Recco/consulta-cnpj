@@ -20,7 +20,9 @@ async function consultarCNPJ() {
       "Nome (fantasia)": dados.estabelecimento?.nome_fantasia,
       "Status": dados.estabelecimento?.situacao_cadastral,
       "CEP": dados.estabelecimento?.cep,
-      "Logradouro": dados.estabelecimento?.logradouro,
+      "Logradouro": dados.estabelecimento?.tipo_logradouro&&dados.estabelecimento?.logradouro
+              ? `${dados.estabelecimento.tipo_logradouro} ${dados.estabelecimento.logradouro}`
+              : null,
       "Número": dados.estabelecimento?.numero,
       "Bairro": dados.estabelecimento?.bairro,
       "Cidade": dados.estabelecimento?.cidade?.nome?.toUpperCase(),
