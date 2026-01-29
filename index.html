@@ -4,18 +4,27 @@
   <meta charset="UTF-8">
   <title>Consulta CNPJ + IE</title>
   <style>
-    body {
+
+body {
+  display: flex;
+  flex-direction: column;
   font-family: Arial, sans-serif;
   background-color: #01001a; 
   color: #ffffff; 
   text-align: center;
-  margin: 0;
-  padding: 2px;
+  margin: 0px;
+  padding: 0px;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
-h1 {
-  margin-bottom: 10px;
-  color: #ffffff; 
+main {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .campo {
@@ -138,34 +147,74 @@ footer {
   font-size: 10px
 }
 
-h1{
+.top {
+  margin-top: -50px;
   display: flex;
   justify-content: flex-start;
-  background: #000000;
+  background: linear-gradient(to right, #000000,#2600ff);
   border-width: 50px solid #fff;
   border-radius: 5px;
-  padding: 0 520px;
   margin: 0px;
+  justify-content: center;
+  text-align: center;
   align-items: center;
-  width: 100%;
-  max-width: 800px; 
+  width: 100%; 
+  text-overflow: ellipsis;
   height: 70px;
-  border-bottom: 0.01px solid #8b8b8b;
+  position: fixed;
+  z-index: 1;
 }
+
 FORM{
+  display: flex;
   margin-top: 10px;
+  /*border: solid 1px red;*/
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-top: 73px;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo{
+  display: flex ;
+  margin-top: 5px;
+  margin-left: 30px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 60px;
+  z-index: 2;
+  border-width: 50px solid #fff;
+  border-radius: 5px;
 }
 
   </style>
 </head>
-<body>
-  <h1>Consulta CNPJ + IE</h1>
 
-  <FORM class="campo" ID="FORM">
-    <input type="text" id="cnpj" placeholder="Digite o CNPJ">
-    <button type="submit">Consultar</button> <!-- onclick="consultarCNPJ()" -->
-    <button onclick="copiarCNPJ()" class="copiar-cnpj" type="button">Copiar CNPJ</button>
-  </FORM>
+<body>
+
+  <main>
+    <div class="top">
+      <h1>Consulta CNPJ + IE</h1>
+    </div>
+  </main>
+
+
+  <div>
+    <img src="Logo_eskimó_Sorvetes_Vermelha.png" class="logo">
+  </div>
+  
+  <div class="buscador">
+    <FORM class="campo" ID="FORM">
+      <input type="text" id="cnpj" placeholder="Digite o CNPJ">
+      <button type="submit">Consultar</button> <!-- onclick="consultarCNPJ()" -->
+      <button onclick="copiarCNPJ()" class="copiar-cnpj" type="button">Copiar CNPJ</button>
+    </FORM>
+  </div>
+  
+
   
   <div id="resultado"></div>
   

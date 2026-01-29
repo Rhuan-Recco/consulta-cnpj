@@ -20,17 +20,17 @@ async function consultarCNPJ() {
     resultado.innerHTML = "";
     
     const campos = {
-      "Nome (empresarial)": dados.razao_social,
-      "Nome (fantasia)": dados.estabelecimento?.nome_fantasia,
+      "Nome (empresarial)": dados.razao_social.toUpperCase(),
+      "Nome (fantasia)": dados.estabelecimento?.nome_fantasia.toUpperCase(),
       "Status": dados.estabelecimento?.situacao_cadastral,
       "CEP": dados.estabelecimento?.cep,
       "Logradouro": dados.estabelecimento?.tipo_logradouro&&dados.estabelecimento?.logradouro
               ? `${dados.estabelecimento.tipo_logradouro} ${dados.estabelecimento.logradouro}`
               : null,
       "Número": dados.estabelecimento?.numero,
-      "Bairro": dados.estabelecimento?.bairro,
+      "Bairro": dados.estabelecimento?.bairro.toUpperCase(),
       "Cidade": dados.estabelecimento?.cidade?.nome?.toUpperCase(),
-      "Estado": dados.estabelecimento?.estado?.sigla,
+      "Estado": dados.estabelecimento?.estado?.sigla.toUpperCase(),
       "Telefone": dados.estabelecimento?.ddd1&&dados.estabelecimento?.telefone1 
               ? `(${dados.estabelecimento.ddd1})${dados.estabelecimento.telefone1}` 
               : null,
@@ -105,14 +105,14 @@ if (dados.estabelecimento?.inscricoes_estaduais?.length > 0) {
     botao.style.backgroundColor = "red";
     botao.style.color = "white";
     botao.onclick = () => {
-      copiar(`${ie.inscricao_estadual} - Ativa - ${ie.estado?.sigla}`);
+      copiar(`${ie.inscricao_estadual})`);
       alert("Foi copiada a IE de outro estado!");
     };
   } else {
     // 🔹 Se for ativa e do mesmo estado → botão azul normal
     botao.style.backgroundColor = "#0066cc";
     botao.style.color = "white";
-    botao.onclick = () => copiar(`${ie.inscricao_estadual} - Ativa - ${ie.estado?.sigla}`);
+    botao.onclick = () => copiar(`${ie.inscricao_estadual}`);
   }
 
   linha.appendChild(botao);
