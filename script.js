@@ -6,6 +6,11 @@ document.getElementById('FORM').addEventListener('submit',(e)=> {
 async function consultarCNPJ() {
   const cnpj = document.getElementById("cnpj").value.replace(/\D/g, "");
   const resultado = document.getElementById("resultado");
+
+  if(!cnpj){
+    resultadp.innerHTML = "";
+    return;
+  }
   resultado.innerHTML = "Consultando...";
 
   try {
@@ -146,9 +151,14 @@ function copiar(texto) {
   });
 }
 
+function limparTudo() {
+  document.getElementById("cnpj").value = "";
+  document.getElementById("resultado").innerHTML = "";
+}
+
 function copiarCNPJ() {
   const campo = document.getElementById("cnpj");
-  const cnpj = campo.value.trim();
+  const cnpj = campo.value.trim().replace(/\D/g,"");
 
   if (cnpj) {
     copiar(cnpj); 
